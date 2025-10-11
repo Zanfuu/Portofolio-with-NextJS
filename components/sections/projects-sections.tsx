@@ -3,40 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ProjectCard from '../ui/projects-card';
+import { projects } from '../../data/projects';
 
 export default function ProjectsSection() {
-  const featuredProjects = [
-    {
-      id: 1,
-      title: 'TransGo Dashboard',
-      description: 'Comprehensive logistics management system with real-time tracking and analytics.',
-      image: '/api/placeholder/400/300',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
-      category: 'TransGo',
-      date: '2024',
-      link: '/projects?tab=transgo'
-    },
-    {
-      id: 2,
-      title: 'N8N Automation Platform',
-      description: 'Workflow automation platform for business processes with custom integrations.',
-      image: '/api/placeholder/400/300',
-      technologies: ['N8N', 'Docker', 'PostgreSQL', 'Redis'],
-      category: 'N8N',
-      date: '2024',
-      link: '/projects?tab=n8n'
-    },
-    {
-      id: 3,
-      title: 'Cloud Infrastructure Setup',
-      description: 'Scalable cloud infrastructure with CI/CD pipelines and monitoring.',
-      image: '/api/placeholder/400/300',
-      technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform'],
-      category: 'Cloud',
-      date: '2024',
-      link: '/projects?tab=cloud'
-    }
-  ];
+  const featuredProjects = projects.All.slice(0, 3);
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">

@@ -3,52 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ExperienceCard from '../ui/experience-card';
+import { experiences } from '../../data/experiences';
 
 export default function ExperienceSection() {
-  const featuredExperiences = [
-    {
-      id: 1,
-      company: 'TransGo',
-      position: 'Frontend Developer',
-      duration: '2023 - Present',
-      description: 'Leading frontend development of logistics management systems and user interfaces.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js'],
-      category: 'TransGo',
-      achievements: [
-        'Built responsive dashboard with real-time updates',
-        'Implemented modern UI/UX design patterns',
-        'Improved user experience and performance by 60%'
-      ]
-    },
-    {
-      id: 2,
-      company: 'Freelance',
-      position: 'Frontend Developer',
-      duration: '2022 - 2023',
-      description: 'Helped startups and small businesses with modern web applications and user interfaces.',
-      technologies: ['React', 'Vue.js', 'JavaScript', 'CSS'],
-      category: 'Web',
-      achievements: [
-        'Created responsive and accessible web applications',
-        'Implemented modern design systems',
-        'Improved user engagement by 40%'
-      ]
-    },
-    {
-      id: 3,
-      company: 'Previous Role',
-      position: 'Frontend Developer',
-      duration: '2021 - 2022',
-      description: 'Developed user interfaces and interactive web applications for various client projects.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
-      category: 'Web',
-      achievements: [
-        'Built responsive and interactive websites',
-        'Implemented modern CSS techniques',
-        'Optimized website performance and loading times'
-      ]
-    }
-  ];
+  const featuredExperiences = experiences.All.slice(0, 3);
 
   return (
     <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">

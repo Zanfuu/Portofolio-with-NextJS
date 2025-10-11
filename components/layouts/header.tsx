@@ -33,13 +33,17 @@ export default function Header() {
     }
   };
 
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
+
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Experience', href: '/experience' },
-    { name: 'Certificates', href: '/certificates' },
-    { name: 'Skills', href: '/skills' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Certificates', href: '#certificates' },
+    { name: 'Skills', href: '#skills' },
   ];
 
   return (
@@ -53,19 +57,20 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
-              </Link>
-            ))}
-          </nav>
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex space-x-8">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={handleNavClick}
+                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+                    >
+                      {item.name}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
+                    </Link>
+                  ))}
+                </nav>
 
           {/* Dark Mode Toggle & CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
@@ -128,17 +133,17 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+                  <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+                    {navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 text-base font-medium transition-colors duration-200"
+                        onClick={handleNavClick}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
               <div className="pt-4 space-y-2">
                 <button
                   onClick={toggleDarkMode}
@@ -160,13 +165,13 @@ export default function Header() {
                     </>
                   )}
                 </button>
-                <Link
-                  href="#contact"
-                  className="bg-blue-600 dark:bg-blue-700 text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200 text-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  contact me
-                </Link>
+                    <Link
+                      href="#contact"
+                      className="bg-blue-600 dark:bg-blue-700 text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200 text-center"
+                      onClick={handleNavClick}
+                    >
+                      contact me
+                    </Link>
               </div>
             </div>
           </div>

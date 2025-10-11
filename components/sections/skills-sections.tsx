@@ -2,24 +2,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { skills } from '../../data/skills';
 
 export default function SkillsSection() {
-  const skills = [
-    { name: 'JavaScript', level: 90, category: 'Frontend' },
-    { name: 'TypeScript', level: 85, category: 'Frontend' },
-    { name: 'React', level: 90, category: 'Frontend' },
-    { name: 'Next.js', level: 85, category: 'Frontend' },
-    { name: 'Node.js', level: 80, category: 'Backend' },
-    { name: 'Python', level: 75, category: 'Backend' },
-    { name: 'PostgreSQL', level: 80, category: 'Database' },
-    { name: 'MongoDB', level: 75, category: 'Database' },
-    { name: 'Docker', level: 85, category: 'DevOps' },
-    { name: 'AWS', level: 80, category: 'DevOps' },
-    { name: 'Linux', level: 90, category: 'DevOps' },
-    { name: 'Git', level: 95, category: 'Tools' },
-  ];
-
-  const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps', 'Tools'];
+  const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps', 'Testing', 'Tools'];
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredSkills = activeCategory === 'All' 

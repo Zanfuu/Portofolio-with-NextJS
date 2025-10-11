@@ -2,40 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { certificates } from '../../data/certificates';
 
 export default function CertificatesSection() {
-  const featuredCertificates = [
-    {
-      id: 1,
-      title: 'AWS Certified Solutions Architect',
-      issuer: 'Amazon Web Services',
-      date: '2024',
-      description: 'Demonstrates ability to design and deploy scalable systems on AWS.',
-      image: '/api/placeholder/300/200',
-      category: 'Cloud',
-      expiryDate: '2027'
-    },
-    {
-      id: 2,
-      title: 'React Developer Certification',
-      issuer: 'Meta',
-      date: '2023',
-      description: 'Advanced React development skills and best practices.',
-      image: '/api/placeholder/300/200',
-      category: 'Web',
-      expiryDate: 'No Expiry'
-    },
-    {
-      id: 3,
-      title: 'Linux System Administration',
-      issuer: 'Red Hat',
-      date: '2023',
-      description: 'Comprehensive Linux system administration and troubleshooting.',
-      image: '/api/placeholder/300/200',
-      category: 'Linux',
-      expiryDate: '2026'
-    }
-  ];
+  const featuredCertificates = certificates.All.slice(0, 3);
 
   return (
     <section id="certificates" className="py-20 bg-white dark:bg-gray-900">
@@ -96,7 +66,7 @@ export default function CertificatesSection() {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {certificate.title}
                 </h3>
-                
+
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm text-gray-500 dark:text-gray-400">
                     {certificate.issuer}
@@ -105,7 +75,7 @@ export default function CertificatesSection() {
                     {certificate.date}
                   </span>
                 </div>
-                
+
                 <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
                   {certificate.description}
                 </p>

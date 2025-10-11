@@ -9,7 +9,7 @@ export default function ProjectsSection() {
   const featuredProjects = projects.All.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

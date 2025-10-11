@@ -21,11 +21,11 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.2 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
-    >
+        <motion.div
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.2 }}
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
+        >
       {/* Project Image */}
       <div className="relative h-48 bg-gray-200 dark:bg-gray-700">
         <div className="absolute inset-0 flex items-center justify-center">
@@ -34,7 +34,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
         <div className="absolute top-4 right-4">
-          <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium">
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-2 py-1 rounded text-xs font-medium">
             {project.category}
           </span>
         </div>

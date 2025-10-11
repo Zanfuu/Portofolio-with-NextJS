@@ -12,9 +12,9 @@ export default function ExperiencesPage() {
   const currentExperiences = experiences[activeTab as keyof typeof experiences] || [];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-gradient-to-b from-slate-200 via-blue-300 to-purple-400 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 transition-colors">
       {/* Header */}
-      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20">
+      <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

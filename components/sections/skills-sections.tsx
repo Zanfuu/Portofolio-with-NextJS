@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { skills } from '../../data/skills';
+import TitleUnderline from '../ui/title-underline';
 
 export default function SkillsSection() {
   const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps', 'Testing', 'Tools'];
@@ -20,14 +21,21 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Skills & Technologies
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <TitleUnderline
+            title="Skills & Technologies"
+            animated={false}
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 text-center border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm"
+          >
             Technologies and tools I work with to build amazing applications
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Category Filter */}

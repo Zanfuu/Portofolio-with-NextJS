@@ -8,7 +8,7 @@ import Contact from '../components/layouts/contact';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-200 via-blue-300 to-purple-400 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 transition-colors">
+    <div className="min-h-screen bg-gradient-to-b from-slate-800 via-blue-300 via-purple-400 via-slate-800 via-blue-400 via-slate-800 to-slate-800 dark:from-gray-900 dark:via-blue-900 dark:via-purple-900 dark:via-gray-900 dark:via-blue-800 dark:via-gray-900 dark:to-gray-900 transition-colors">
       <HomeSection />
       <AboutSection />
       <SkillsSection />

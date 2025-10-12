@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ProjectCard from '../ui/projects-card';
 import { projects } from '../../data/projects';
+import TitleUnderline from '../ui/title-underline';
 
 export default function ProjectsSection() {
   const featuredProjects = projects.All.slice(0, 3);
@@ -16,14 +17,21 @@ export default function ProjectsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <TitleUnderline
+            title="Featured Projects"
+            animated={false}
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 text-center border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm"
+          >
             A showcase of my recent work and projects across different domains
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Projects Grid */}

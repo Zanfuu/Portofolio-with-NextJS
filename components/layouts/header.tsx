@@ -40,10 +40,10 @@ export default function Header() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Certificates', href: '#certificates' },
-    { name: 'Skills', href: '#skills' },
   ];
 
   return (

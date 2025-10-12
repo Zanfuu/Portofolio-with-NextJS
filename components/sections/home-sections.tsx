@@ -8,12 +8,45 @@ export default function HomeSection() {
     <section id="home" className="min-h-screen flex items-center justify-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+          {/* Profile Image - Mobile First */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex justify-center lg:justify-end order-1 lg:order-2"
+          >
+            <div className="relative">
+              <div className="w-80 h-80 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-full flex items-center justify-center shadow-2xl">
+                <div className="w-72 h-72 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+                  <div className="text-6xl font-bold text-gray-700 dark:text-gray-300">
+                    Z
+                  </div>
+                </div>
+              </div>
+              {/* Floating elements */}
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg"
+              >
+                <span className="text-2xl">🚀</span>
+              </motion.div>
+              <motion.div
+                animate={{ y: [10, -10, 10] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-4 -left-4 w-12 h-12 bg-green-400 rounded-full flex items-center justify-center shadow-lg"
+              >
+                <span className="text-xl">💻</span>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Content - Mobile Second */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-2 lg:order-1"
           >
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -22,7 +55,7 @@ export default function HomeSection() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6"
             >
               Hi, I'm{' '}
-              <span className="text-blue-600 dark:text-blue-400">Zanfuu</span>
+              <span className="text-blue-600 dark:text-blue-400">Fauzan Naufal Azmi</span>
             </motion.h1>
             
             <motion.p
@@ -64,39 +97,6 @@ export default function HomeSection() {
                 View My Work
               </Link>
             </motion.div>
-          </motion.div>
-          
-          {/* Right Content - Profile Image or Illustration */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative">
-                     <div className="w-80 h-80 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-full flex items-center justify-center shadow-2xl">
-                <div className="w-72 h-72 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
-                  <div className="text-6xl font-bold text-gray-700 dark:text-gray-300">
-                    Z
-                  </div>
-                </div>
-              </div>
-              {/* Floating elements */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg"
-              >
-                <span className="text-2xl">🚀</span>
-              </motion.div>
-              <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -left-4 w-12 h-12 bg-green-400 rounded-full flex items-center justify-center shadow-lg"
-              >
-                <span className="text-xl">💻</span>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
       </div>

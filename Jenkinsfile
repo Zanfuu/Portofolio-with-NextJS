@@ -9,18 +9,18 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                // GANTI DENGAN URL REPOSITORI PORTOFOLIO ANDA
+                // Pastikan credentialsId digunakan jika repo private
                 git branch: 'main', url: 'https://github.com/Zanfuu/Portofolio-with-NextJS.git' 
             }
         }
 
         stage('Build & Deploy (Via Docker)') {
             steps {
-                // Pastikan file deploy_portfolio.sh sudah ada di root repository Anda
-                sh """
-                chmod +x deploy_portfolio.sh
-                ./deploy_portfolio.sh
-                """
+                // 1. Beri izin eksekusi pada skrip deploy yang baru saja di-clone
+                sh 'chmod +x deploy_portofolio.sh'
+
+                // 2. Jalankan skrip deployment
+                sh './deploy_portofolio.sh'
             }
         }
     }

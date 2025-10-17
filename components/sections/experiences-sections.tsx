@@ -9,7 +9,7 @@ export default function ExperienceSection() {
   const featuredExperiences = experiences.All.slice(0, 3);
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -18,10 +18,10 @@ export default function ExperienceSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
             Work Experience
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-black/80 max-w-2xl mx-auto mb-8 leading-relaxed">
             My professional journey and key achievements in software development
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ export default function ExperienceSection() {
         >
           <Link
             href="/experiences"
-            className="inline-flex items-center bg-blue-600 dark:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200"
+            className="inline-flex items-center glass-button-dark text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300"
           >
             View Full Experience
             <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -14,7 +14,7 @@ export default function CertificatesPageContent() {
   return (
     <>
       {/* Header */}
-      <div className="py-20">
+      <div className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -22,15 +22,15 @@ export default function CertificatesPageContent() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-black text-black mb-6">
               My Certifications
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-black/80 max-w-3xl mx-auto mb-8 leading-relaxed">
               Professional certifications that validate my expertise in various technologies and methodologies
             </p>
             <Link
               href="/"
-              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+              className="inline-flex items-center glass-button text-black hover:scale-105 font-semibold transition-all duration-300 px-6 py-3 rounded-full"
             >
               <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -42,7 +42,7 @@ export default function CertificatesPageContent() {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         {/* Tab Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,10 +54,10 @@ export default function CertificatesPageContent() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeTab === tab
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'glass-button-dark text-white'
+                  : 'glass-button text-black hover:scale-105'
               }`}
             >
               {tab}
@@ -78,60 +78,60 @@ export default function CertificatesPageContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+              className="glass-card rounded-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
             >
               {/* Certificate Image */}
-              <div className="relative h-48 bg-gray-200 dark:bg-gray-700">
+              <div className="relative h-52 glass rounded-t-2xl">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-gray-400 dark:text-gray-500 mb-2">
+                    <div className="text-5xl font-black text-gray-500 mb-2">
                       📜
                     </div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                    <div className="text-sm font-medium text-gray-500">
                       {certificate.category}
                     </div>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium">
+                  <span className="glass-button-dark text-white px-3 py-1.5 rounded-full text-xs font-semibold">
                     {certificate.category}
                   </span>
                 </div>
               </div>
 
               {/* Certificate Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              <div className="p-8">
+                <h3 className="text-xl font-bold text-black mb-2">
                   {certificate.title}
                 </h3>
 
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="text-sm font-medium text-gray-500">
                     {certificate.issuer}
                   </span>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="text-sm font-medium text-gray-500">
                     {certificate.date}
                   </span>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                <p className="text-black/80 mb-4 text-sm leading-relaxed">
                   {certificate.description}
                 </p>
 
-                <div className="space-y-2 text-xs text-gray-500 dark:text-gray-400">
+                <div className="space-y-2 text-xs font-medium text-gray-500">
                   <div className="flex justify-between">
                     <span>Credential ID:</span>
                     <span className="font-mono">{certificate.credentialId}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Expires:</span>
-                    <span className={certificate.expiryDate === 'No Expiry' ? 'text-green-600 dark:text-green-400' : ''}>
+                    <span className={certificate.expiryDate === 'No Expiry' ? 'text-black font-semibold' : ''}>
                       {certificate.expiryDate}
                     </span>
                   </div>
                   <div className="flex justify-between items-center pt-2">
                     <span>Status:</span>
-                    <span className="text-green-600 dark:text-green-400 flex items-center">
+                    <span className="text-black font-semibold flex items-center">
                       <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
@@ -153,10 +153,10 @@ export default function CertificatesPageContent() {
             className="text-center py-12"
           >
             <div className="text-6xl mb-4">📜</div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-xl font-bold text-black mb-2">
               No certificates found
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-black/80">
               No certificates available for the selected category.
             </p>
           </motion.div>

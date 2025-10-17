@@ -15,7 +15,7 @@ export default function ProjectsPageContent() {
   return (
     <>
       {/* Header */}
-      <div className="py-20">
+      <div className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -23,15 +23,15 @@ export default function ProjectsPageContent() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-black text-black mb-6">
               My Projects
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-black/80 max-w-3xl mx-auto mb-8 leading-relaxed">
               A showcase of my recent work and projects across different domains
             </p>
             <Link
               href="/"
-              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+              className="inline-flex items-center glass-button text-black hover:scale-105 font-semibold transition-all duration-300 px-6 py-3 rounded-full"
             >
               <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -43,7 +43,7 @@ export default function ProjectsPageContent() {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         {/* Tab Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,10 +55,10 @@ export default function ProjectsPageContent() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 activeTab === tab
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'glass-button-dark text-white'
+                  : 'glass-button text-black hover:scale-105'
               }`}
             >
               {tab}
@@ -94,10 +94,10 @@ export default function ProjectsPageContent() {
             className="text-center py-12"
           >
             <div className="text-6xl mb-4">🚀</div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-xl font-bold text-black mb-2">
               No projects found
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-black/80">
               No projects available for the selected category.
             </p>
           </motion.div>

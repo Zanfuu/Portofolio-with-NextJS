@@ -10,7 +10,7 @@ export default function ProjectsSection() {
   const featuredProjects = projects.All.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export default function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 text-center border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm"
+            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-2xl p-6"
           >
             A showcase of my recent work and projects across different domains
           </motion.p>
@@ -65,7 +65,7 @@ export default function ProjectsSection() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center bg-blue-600 dark:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200"
+            className="inline-flex items-center glass-button-dark text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300"
           >
             View All Projects
             <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

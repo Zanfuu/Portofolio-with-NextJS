@@ -132,6 +132,27 @@ export const projects: Record<string, Project[]> = {
   TransGo: [
     {
       id: 1,
+      title: 'TransGo Dashboard Login Pages',
+      description: 'Comprehensive logistics management system with real-time tracking and analytics.',
+      longDescription: 'A full-featured logistics management platform built with modern web technologies. Features include real-time shipment tracking, route optimization, driver management, and comprehensive analytics dashboard.',
+      image: '@\public\Transgo-Dashboard\Dashboard-Login\Transgo-Dashboard-RoleSelection-Page.png',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js'],
+      category: 'TransGo',
+      date: '2025',
+      link: '/projects?tab=transgo',
+      features: [
+        'Real-time shipment tracking',
+        'Route optimization algorithms',
+        'Driver management system',
+        'Analytics dashboard',
+        'Mobile-responsive design',
+        'API integration'
+      ],
+      githubUrl: 'https://github.com/zanfuu/transgo-dashboard',
+      liveUrl: 'https://transgo-demo.com'
+    },
+    {
+      id: 2,
       title: 'TransGo Dashboard',
       description: 'Comprehensive logistics management system with real-time tracking and analytics.',
       longDescription: 'A full-featured logistics management platform built with modern web technologies. Features include real-time shipment tracking, route optimization, driver management, and comprehensive analytics dashboard.',

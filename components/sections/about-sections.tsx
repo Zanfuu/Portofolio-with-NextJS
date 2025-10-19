@@ -23,9 +23,9 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-3xl p-6 border"
+            className="text-lg text-black/80 w-full mt-6 text-center glass-card rounded-3xl p-8 border"
           >
-            Passionate developer with expertise in modern frontend technologies and user experience
+            Seorang DevOps Engineer yang bersemangat untuk menyederhanakan dan mengotomatisasi kompleksitas, dari source code hingga production. Fokus utama saya adalah membangun alur kerja CI/CD yang tangguh dan mengelola infrastruktur yang scalable.
           </motion.p>
         </motion.div>
 
@@ -39,53 +39,89 @@ export default function AboutSection() {
             className="space-y-6"
           >
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p className="text-black leading-relaxed">
-                I'm a passionate Frontend Developer with over 3 years of experience 
-                in building beautiful and interactive web applications. I love creating 
-                amazing user experiences that solve real-world problems and make a positive impact.
+              <h3 className="text-2xl font-bold text-black mb-4">Perjalanan Karier Saya</h3>
+              
+              <p className="text-black leading-relaxed mb-4">
+                Perjalanan saya dimulai dari frontend development dengan Next.js, React, dan TypeScript selama PKL, yang kemudian memicu minat saya pada keseluruhan siklus rilis dan operasional sistem.
               </p>
               
-              <p className="text-black leading-relaxed">
-                My journey in technology started with curiosity about how things work, and it has evolved 
-                into a career focused on building robust, efficient, and user-friendly applications. 
-                I enjoy working with modern technologies and staying up-to-date with the latest trends 
-                in software development.
+              <p className="text-black leading-relaxed mb-4">
+                Saat ini, saya berdedikasi untuk menguasai ekosistem DevOps, bertekad untuk menguasai tools penting seperti Jenkins, Nginx Proxy Manager, dan seluruh alur kerja CI/CD untuk memastikan deployment yang mulus.
               </p>
+
+              <h3 className="text-2xl font-bold text-black mb-4 mt-8">Keterampilan Teknis</h3>
               
-              <p className="text-black leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source 
-                projects, or sharing knowledge with the developer community. I believe in continuous learning 
-                and helping others grow in their technical journey.
-              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div className="glass-card p-4 rounded-2xl">
+                  <h4 className="font-semibold text-black mb-3">DevOps & Infrastructure</h4>
+                  <ul className="text-sm text-black/80 space-y-1">
+                    <li>• Jenkins CI/CD</li>
+                    <li>• Docker & Containerization</li>
+                    <li>• Linux & VPS Management</li>
+                    <li>• Nginx & Cloudflare</li>
+                  </ul>
+                </div>
+                <div className="glass-card p-4 rounded-2xl">
+                  <h4 className="font-semibold text-black mb-3">Fullstack Development</h4>
+                  <ul className="text-sm text-black/80 space-y-1">
+                    <li>• Next.js & React</li>
+                    <li>• TypeScript & JavaScript</li>
+                    <li>• Tailwind CSS</li>
+                    <li>• Git & Version Control</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right Content - Stats or Features */}
+          {/* Right Content - Stats & Call to Action */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-2 gap-6"
+            className="space-y-6"
           >
-            <div className="glass-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
-              <div className="text-4xl font-black text-black mb-2">3+</div>
-              <div className="text-black/80 font-medium">Years Experience</div>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="glass-card p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
+                <div className="text-3xl font-black text-black mb-2">1+</div>
+                <div className="text-black/80 font-medium text-sm">Year Learning</div>
+              </div>
+              
+              <div className="glass-card p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
+                <div className="text-3xl font-black text-black mb-2">20+</div>
+                <div className="text-black/80 font-medium text-sm">Projects Completed</div>
+              </div>
+              
+              <div className="glass-card p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
+                <div className="text-3xl font-black text-black mb-2">15+</div>
+                <div className="text-black/80 font-medium text-sm">Technologies</div>
+              </div>
+              
+              <div className="glass-card p-6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
+                <div className="text-3xl font-black text-black mb-2">24/7</div>
+                <div className="text-black/80 font-medium text-sm">System Uptime</div>
+              </div>
             </div>
-            
-            <div className="glass-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
-              <div className="text-4xl font-black text-black mb-2">50+</div>
-              <div className="text-black/80 font-medium">Projects Completed</div>
-            </div>
-            
-            <div className="glass-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
-              <div className="text-4xl font-black text-black mb-2">15+</div>
-              <div className="text-black/80 font-medium">Technologies</div>
-            </div>
-            
-            <div className="glass-card p-8 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1">
-              <div className="text-4xl font-black text-black mb-2">100%</div>
-              <div className="text-black/80 font-medium">Client Satisfaction</div>
+
+            {/* Call to Action */}
+            <div className="glass-card p-6 rounded-2xl text-center">
+              <h3 className="text-lg font-bold text-black mb-3">Mari Berkolaborasi!</h3>
+              <p className="text-black/80 text-sm mb-4">
+                Tertarik untuk berkolaborasi dalam proyek deployment atau development berikutnya? Jangan ragu untuk melihat proyek-proyek terbaru saya di bawah ini atau terhubung dengan saya!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="mailto:fnaufalazmi09@gmail.com" className="btn-primary px-4 py-2 rounded-full text-sm font-semibold text-center">
+                  Email Me
+                </a>
+                <a href="https://linkedin.com/in/zanfuu" className="btn-secondary px-4 py-2 rounded-full text-sm font-semibold text-center">
+                  LinkedIn
+                </a>
+                <a href="https://github.com/zanfuu" className="btn-secondary px-4 py-2 rounded-full text-sm font-semibold text-center">
+                  GitHub
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

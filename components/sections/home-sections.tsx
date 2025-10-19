@@ -16,9 +16,11 @@ export default function HomeSection() {
             className="flex justify-center lg:justify-end order-1 lg:order-2"
           >
             <div className="relative">
-              <div className="w-80 h-80 glass-card-dark rounded-full flex items-center justify-center relative">
+              <div className="w-80 h-80 rounded-full flex items-center justify-center relative" style={{
+                boxShadow: 'inset 0 0 0 6px rgba(167,139,250,0.6), 0 20px 40px rgba(124,58,237,0.15)'
+              }}>
                 <div className="w-72 h-72 glass-card rounded-full flex items-center justify-center">
-                  <div className="text-6xl font-bold text-black">
+                  <div className="text-6xl font-extrabold text-gradient-primary">
                     Z
                   </div>
                 </div>
@@ -27,16 +29,24 @@ export default function HomeSection() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-16 h-16 glass-card-dark rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
+                className="absolute -top-4 -right-4 w-16 h-16 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, var(--primary-600), var(--accent-500))',
+                  boxShadow: '0 10px 24px rgba(34,211,238,0.25)'
+                }}
               >
-                <span className="text-2xl">🚀</span>
+                <span className="text-2xl text-white">🚀</span>
               </motion.div>
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -left-4 w-12 h-12 glass-card-dark rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
+                className="absolute -bottom-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, var(--primary-600), var(--primary-400))',
+                  boxShadow: '0 8px 20px rgba(124,58,237,0.25)'
+                }}
               >
-                <span className="text-xl">💻</span>
+                <span className="text-xl text-white">💻</span>
               </motion.div>
             </div>
           </motion.div>
@@ -55,7 +65,7 @@ export default function HomeSection() {
               className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-6 leading-tight"
             >
               Hi, I'm{' '}
-              <span className="text-black bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">Fauzan Naufal Azmi</span>
+              <span className="text-gradient-primary">Fauzan Naufal Azmi</span>
             </motion.h1>
             
             <motion.p
@@ -86,13 +96,13 @@ export default function HomeSection() {
             >
               <Link
                 href="#contact"
-                className="glass-button-dark text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300 text-center"
+                className="btn-primary px-8 py-4 rounded-full font-semibold text-center"
               >
                 Get In Touch
               </Link>
               <Link
                 href="#projects"
-                className="glass-button text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300 text-center"
+                className="btn-secondary px-8 py-4 rounded-full font-semibold text-center"
               >
                 View My Work
               </Link>

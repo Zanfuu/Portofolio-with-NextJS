@@ -50,10 +50,8 @@ export default function SkillsSection() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeCategory === category
-                  ? 'glass-button-dark text-white'
-                  : 'glass-button text-black hover:scale-105'
+              className={`${
+                activeCategory === category ? 'chip-active' : 'chip'
               }`}
             >
               {category}
@@ -93,7 +91,7 @@ export default function SkillsSection() {
                   whileInView={{ width: `${skill.level}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: index * 0.1 }}
-                  className="bg-black h-3 rounded-full shadow-modern"
+                  className="progress-fill h-3 rounded-full shadow-modern"
                 />
               </div>
               

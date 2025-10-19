@@ -63,7 +63,7 @@ export default function Contact({ className = '' }: ContactProps) {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {/* Contact Form */}
           <div className="glass-card rounded-3xl p-10">
             <h3 className="text-2xl font-bold text-black mb-8">Send Message</h3>
@@ -136,14 +136,20 @@ export default function Contact({ className = '' }: ContactProps) {
 
               {/* Submit Status */}
               {submitStatus === 'success' && (
-                <div className="p-4 glass-card rounded-xl">
-                  <p className="text-black text-sm font-medium">Thank you! Your message has been sent successfully.</p>
+                <div className="p-4 rounded-xl" style={{
+                  background: 'linear-gradient(90deg, rgba(16,185,129,0.12), rgba(16,185,129,0.06))',
+                  border: '1px solid rgba(16,185,129,0.35)'
+                }}>
+                  <p className="text-sm font-medium" style={{color: '#065f46'}}>Thank you! Your message has been sent successfully.</p>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="p-4 glass-card rounded-xl">
-                  <p className="text-black text-sm font-medium">Sorry, there was an error sending your message. Please try again.</p>
+                <div className="p-4 rounded-xl" style={{
+                  background: 'linear-gradient(90deg, rgba(239,68,68,0.12), rgba(239,68,68,0.06))',
+                  border: '1px solid rgba(239,68,68,0.35)'
+                }}>
+                  <p className="text-sm font-medium" style={{color: '#7f1d1d'}}>Sorry, there was an error sending your message. Please try again.</p>
                 </div>
               )}
 

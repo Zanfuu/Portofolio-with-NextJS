@@ -20,17 +20,17 @@ interface ExperienceCardProps {
 export default function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
         <motion.div
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
           transition={{ duration: 0.2 }}
           className="glass-card rounded-2xl transition-all duration-300 p-8 hover:-translate-y-1"
         >
       <div className="flex flex-col md:flex-row md:items-start gap-4">
         {/* Company Logo/Icon */}
         <div className="flex-shrink-0">
-          <div className="w-20 h-20 glass rounded-2xl flex items-center justify-center">
-            <div className="text-3xl font-black text-black">
-              {experience.company.charAt(0)}
-            </div>
+          <div className="w-20 h-20 rounded-2xl flex items-center justify-center" style={{
+            background: 'url(/sample.png) center/cover, linear-gradient(135deg, var(--primary-600), var(--primary-400))'
+          }}>
+            <div className="text-3xl font-black text-white drop-shadow">{experience.company.charAt(0)}</div>
           </div>
         </div>
 
@@ -72,7 +72,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             {experience.technologies.map((tech) => (
               <span
                 key={tech}
-                className="glass text-black px-3 py-1.5 rounded-full text-xs font-medium"
+                className="chip text-xs"
               >
                 {tech}
               </span>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Header() {
@@ -20,8 +21,26 @@ export default function Header() {
     { name: 'Certificates', href: '#certificates' },
   ];
 
+  // Scrollspy active section
+  const [active, setActive] = useState<string>('home');
+  if (typeof window !== 'undefined') {
+    // basic scroll listener, lightweight
+    window.addEventListener('scroll', () => {
+      const sections = ['home','about','skills','projects','experience','certificates'];
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          if (active !== id) setActive(id);
+          break;
+        }
+      }
+    }, { passive: true });
+  }
+
   return (
-    <header className="glass-header sticky top-0 z-50 transition-all duration-300">
+    <header className="glass-header sticky top-0 z-50 transition-all duration-300 hidden md:block">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -38,7 +57,7 @@ export default function Header() {
                       key={item.name}
                       href={item.href}
                       onClick={handleNavClick}
-                      className="px-4 py-2 text-sm font-medium transition-all duration-300 relative group rounded-lg text-white"
+                      className={`px-4 py-2 text-sm font-medium transition-all duration-300 relative group rounded-lg ${active === item.href.replace('#','') || (item.href==='/' && active==='home') ? 'text-gradient-primary' : 'text-white'}`}
                     >
                       {item.name}
                       <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5" style={{background:'var(--primary-400)'}}></span>
@@ -47,7 +66,7 @@ export default function Header() {
                 </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center">
+          <div className="flex items-center">
             <Link
               href="#contact"
               className="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold"
@@ -55,66 +74,8 @@ export default function Header() {
               contact me
             </Link>
           </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-gray-300 focus:outline-none focus:text-gray-300 transition-all duration-300 hover:scale-110"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-                  <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 glass-header border-t border-white/20">
-                    {navigation.map((item) => (
-                    <Link
-                        key={item.name}
-                        href={item.href}
-                      className="block px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg text-white"
-                        onClick={handleNavClick}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-              <div className="pt-4">
-                    <Link
-                      href="#contact"
-                      className="btn-primary block px-6 py-3 rounded-full text-base font-semibold transition-all duration-300 text-center"
-                      onClick={handleNavClick}
-                    >
-                      contact me
-                    </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );

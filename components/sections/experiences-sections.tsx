@@ -6,7 +6,7 @@ import ExperienceCard from '../ui/experience-card';
 import { experiences } from '../../data/experiences';
 
 export default function ExperienceSection() {
-  const featuredExperiences = experiences.All.slice(0, 3);
+  const featuredExperiences = experiences.All.slice(0, 2);
 
   return (
     <section id="experience" className="py-24 bg-white relative">
@@ -18,10 +18,8 @@ export default function ExperienceSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
-            Work Experience
-          </h2>
-          <p className="text-lg text-black/80 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">Work Experience</h2>
+          <p className="text-lg text-black/80 max-w-2xl mx-auto mb-8 leading-relaxed glass-card rounded-3xl p-6 border">
             My professional journey and key achievements in software development
           </p>
         </motion.div>

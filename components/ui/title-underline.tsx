@@ -36,7 +36,11 @@ export default function TitleUnderline({
         initial={animated ? { width: 0 } : {}}
         animate={animated ? { width: '100%' } : {}}
         transition={animated ? { duration: 0.8, delay: 0.2, ease: 'easeInOut' } : {}}
-        className={`h-1.5 bg-black rounded-full mx-auto ${centered ? 'w-32' : 'w-20'} ${underlineClassName}`}
+        className={`h-1.5 rounded-full mx-auto ${centered ? 'w-32' : 'w-20'} ${underlineClassName}`}
+        style={{
+          background: 'linear-gradient(90deg, var(--primary-600), var(--primary-400))',
+          boxShadow: '0 8px 24px rgba(124,58,237,0.25)'
+        }}
       />
     </div>
   );

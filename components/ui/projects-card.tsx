@@ -27,14 +27,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className="glass-card rounded-2xl transition-all duration-300 overflow-hidden hover:-translate-y-2"
         >
       {/* Project Image */}
-      <div className="relative h-52 glass rounded-t-2xl">
+      <div className="relative h-52 rounded-t-2xl" style={{
+        background: 'linear-gradient(180deg, rgba(167,139,250,0.15), rgba(255,255,255,0.6))'
+      }}>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-5xl font-black text-gray-500">
             {project.category.charAt(0)}
           </div>
         </div>
         <div className="absolute top-4 right-4">
-          <span className="glass-button-dark text-white px-3 py-1.5 rounded-full text-xs font-semibold">
+          <span className="chip-active text-xs" style={{paddingTop: '0.375rem', paddingBottom: '0.375rem'}}>
             {project.category}
           </span>
         </div>
@@ -60,7 +62,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="glass text-black px-3 py-1.5 rounded-full text-xs font-medium"
+              className="chip text-xs"
             >
               {tech}
             </span>
@@ -70,10 +72,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* View Project Button */}
         <Link
           href={project.link}
-          className="inline-flex items-center text-black hover:text-gray-600 font-semibold transition-all duration-300 hover:scale-105"
+          className="inline-flex items-center btn-secondary px-5 py-2 rounded-full font-semibold"
         >
           View Details
-          <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </Link>

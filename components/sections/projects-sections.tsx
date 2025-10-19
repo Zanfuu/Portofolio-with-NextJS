@@ -28,7 +28,7 @@ export default function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-2xl p-6"
+            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-3xl p-6 border"
           >
             A showcase of my recent work and projects across different domains
           </motion.p>
@@ -65,7 +65,7 @@ export default function ProjectsSection() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center glass-button-dark text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center btn-primary px-8 py-4 rounded-full font-semibold"
           >
             View All Projects
             <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

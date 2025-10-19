@@ -17,10 +17,8 @@ export default function CertificatesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
-            Certifications
-          </h2>
-          <p className="text-lg text-black/80 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">Certifications</h2>
+          <p className="text-lg text-black/80 max-w-2xl mx-auto mb-8 leading-relaxed glass-card rounded-3xl p-6 border">
             Professional certifications that validate my expertise in various technologies
           </p>
         </motion.div>

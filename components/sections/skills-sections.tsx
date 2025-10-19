@@ -6,12 +6,10 @@ import { skills } from '../../data/skills';
 import TitleUnderline from '../ui/title-underline';
 
 export default function SkillsSection() {
-  const categories = ['All', 'Frontend', 'Backend', 'Database', 'DevOps', 'Testing', 'Tools'];
-  const [activeCategory, setActiveCategory] = useState('All');
+  const categories = ['Frontend', 'Backend', 'Database', 'DevOps', 'Testing', 'Tools'];
+  const [activeCategory, setActiveCategory] = useState('Frontend');
 
-  const filteredSkills = activeCategory === 'All' 
-    ? skills 
-    : skills.filter(skill => skill.category === activeCategory);
+  const filteredSkills = skills.filter(skill => skill.category === activeCategory);
 
   return (
     <section id="skills" className="py-24 bg-white relative">
@@ -32,7 +30,7 @@ export default function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-2xl p-6"
+            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-3xl p-6 border"
           >
             Technologies and tools I work with to build amazing applications
           </motion.p>

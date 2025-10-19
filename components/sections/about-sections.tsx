@@ -23,7 +23,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-2xl p-6"
+            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-3xl p-6 border"
           >
             Passionate developer with expertise in modern frontend technologies and user experience
           </motion.p>

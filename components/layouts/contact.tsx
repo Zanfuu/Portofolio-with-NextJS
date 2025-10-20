@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import TitleUnderline from '../ui/title-underline';
 
 interface ContactProps {
   className?: string;
@@ -54,11 +55,12 @@ export default function Contact({ className = '' }: ContactProps) {
     <section id="contact" className={`py-24 bg-white relative ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-black mb-6">
-            <span className="text-gradient-primary">Get In Touch</span>
-          </h2>
-          <p className="text-lg text-black/80 max-w-2xl mx-auto leading-relaxed">
+        <div className="mb-12">
+          <TitleUnderline
+            title="Get In Touch"
+            animated={false}
+          />
+          <p className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center leading-relaxed">
             Have a project in mind or just want to chat? I'd love to hear from you.
           </p>
         </div>

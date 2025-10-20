@@ -1,10 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import ProjectCard from '../ui/projects-card';
 import { projects } from '../../data/projects';
 import TitleUnderline from '../ui/title-underline';
+import CTAButton from '../ui/cta-button';
 
 export default function ProjectsSection() {
   const featuredProjects = projects.All.slice(0, 3);
@@ -63,15 +63,12 @@ export default function ProjectsSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center"
         >
-          <Link
+          <CTAButton
+            text="View All Projects"
             href="/projects"
-            className="inline-flex items-center btn-primary px-8 py-4 rounded-full font-semibold"
-          >
-            View All Projects
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+            variant="primary"
+            className="px-8 py-4"
+          />
         </motion.div>
       </div>
     </section>

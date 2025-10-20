@@ -27,14 +27,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className="glass-card rounded-2xl transition-all duration-300 overflow-hidden hover:-translate-y-2"
         >
       {/* Project Image */}
-      <div className="relative h-52 rounded-t-2xl" style={{
-        background: 'linear-gradient(180deg, rgba(167,139,250,0.15), rgba(255,255,255,0.6))'
-      }}>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-5xl font-black text-gray-500">
-            {project.category.charAt(0)}
-          </div>
-        </div>
+      <div className="relative h-52 rounded-t-2xl overflow-hidden">
+        <Image
+          src="/sample.png"
+          alt={project.title}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
         <div className="absolute top-4 right-4">
           <span className="chip-active text-xs" style={{paddingTop: '0.375rem', paddingBottom: '0.375rem'}}>
             {project.category}

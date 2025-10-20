@@ -1,7 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import Image from 'next/image';
+import TitleUnderline from '../ui/title-underline';
+import CTAButton from '../ui/cta-button';
 import { certificates } from '../../data/certificates';
 
 export default function CertificatesSection() {
@@ -15,12 +17,21 @@ export default function CertificatesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-6">Certifications</h2>
-          <p className="text-lg text-black/80 max-w-2xl mx-auto mb-8 leading-relaxed glass-card rounded-3xl p-6 border">
+          <TitleUnderline
+            title="Certifications"
+            animated={false}
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg text-black/80 max-w-2xl mx-auto mt-6 text-center glass-card rounded-3xl p-6 border"
+          >
             Professional certifications that validate my expertise in various technologies
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Certificates Grid */}
@@ -41,17 +52,14 @@ export default function CertificatesSection() {
               className="glass-card rounded-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
             >
               {/* Certificate Image */}
-              <div className="relative h-52 glass rounded-t-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-5xl font-black text-gray-500 mb-2">
-                      📜
-                    </div>
-                    <div className="text-sm font-medium text-gray-500">
-                      {certificate.category}
-                    </div>
-                  </div>
-                </div>
+              <div className="relative h-52 rounded-t-2xl overflow-hidden">
+                <Image
+                  src="/sample.png"
+                  alt={certificate.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <span className="glass-button-dark text-white px-3 py-1.5 rounded-full text-xs font-semibold">
                     {certificate.category}
@@ -95,15 +103,12 @@ export default function CertificatesSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center"
         >
-          <Link
+          <CTAButton
+            text="View All Certificates"
             href="/certificates"
-            className="inline-flex items-center glass-button-dark text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300"
-          >
-            View All Certificates
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+            variant="primary"
+            className="px-8 py-4"
+          />
         </motion.div>
       </div>
     </section>

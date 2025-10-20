@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { certificates } from '../../data/certificates';
 
 export default function CertificatesPageContent() {
@@ -81,17 +82,14 @@ export default function CertificatesPageContent() {
               className="glass-card rounded-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
             >
               {/* Certificate Image */}
-              <div className="relative h-52 glass rounded-t-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-5xl font-black text-gray-500 mb-2">
-                      📜
-                    </div>
-                    <div className="text-sm font-medium text-gray-500">
-                      {certificate.category}
-                    </div>
-                  </div>
-                </div>
+              <div className="relative h-52 rounded-t-2xl overflow-hidden">
+                <Image
+                  src="/sample.png"
+                  alt={certificate.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <span className="glass-button-dark text-white px-3 py-1.5 rounded-full text-xs font-semibold">
                     {certificate.category}

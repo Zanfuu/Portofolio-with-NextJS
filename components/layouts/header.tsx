@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import CTAButton from '../ui/cta-button';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,12 +68,13 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="flex items-center">
-            <Link
+            <CTAButton
+              text="contact me"
               href="#contact"
-              className="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold"
-            >
-              contact me
-            </Link>
+              variant="primary"
+              className="px-6 py-2.5 text-sm"
+              icon={false}
+            />
           </div>
         </div>
 

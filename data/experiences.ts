@@ -4,11 +4,11 @@ export const experiences: Record<string, Experience[]> = {
   All: [
     {
       id: 1,
-      company: 'TransGo',
+      company: 'PT MARIFAH CIPTA BANGSA | Transgo Group',
       position: 'Frontend Developer',
-      duration: '2023 - Present',
-      description: 'Leading frontend development of logistics management systems and user interfaces. Working with modern React ecosystem and implementing responsive designs.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Redux', 'Jest', 'Storybook'],
+      duration: 'July 2025 - Present',
+      description: 'Mengimplementasikan konsumsi API, ',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Redux'],
       category: 'TransGo',
       achievements: [
         'Built responsive dashboard with real-time updates',

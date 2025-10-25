@@ -47,5 +47,3 @@ EXPOSE 3000
 
 # Next.js standalone mode: menjalankan server.js yang sudah dibuat
 CMD ["node", "server.js"]
-```
----

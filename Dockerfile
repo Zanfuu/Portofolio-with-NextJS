@@ -1,10 +1,10 @@
 # Tahap 1: Build
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
 COPY . .
-RUN yarn build # Pastikan ini menghasilkan build Next.js
+RUN npm run build
 
 # Tahap 2: Production
 FROM node:20-alpine AS runner

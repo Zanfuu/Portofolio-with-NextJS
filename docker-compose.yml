@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  zanfuu:
+    build: .
+    image: zanfuu/portofolio:latest
+    container_name: zanfuu-portfolio
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

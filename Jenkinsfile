@@ -11,7 +11,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo '📥 Checking out code from repository...'
-                git url: 'https://github.com/Zanfuu/Portofolio-with-NextJS.git', branch: 'master'
+                script {
+                    try {
+                        git url: 'https://github.com/Zanfuu/Portofolio-with-NextJS.git', branch: 'master'
+                    } catch (Exception e) {
+                        echo "❌ Master branch not found, trying main branch..."
+                        git url: 'https://github.com/Zanfuu/Portofolio-with-NextJS.git', branch: 'main'
+                    }
+                }
             }
         }
 
@@ -96,7 +103,13 @@ pipeline {
         }
         always {
             echo '🧹 Cleaning up...'
-            sh 'docker system prune -f'
+            script {
+                try {
+                    sh 'docker system prune -f'
+                } catch (Exception e) {
+                    echo "⚠️ Docker not available for cleanup: ${e.message}"
+                }
+            }
         }
     }
 }

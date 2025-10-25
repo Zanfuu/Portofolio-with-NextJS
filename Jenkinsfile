@@ -50,7 +50,7 @@ pipeline {
                             docker rm portofolio-app || true &&
                             
                             # Jalankan container baru
-                            docker run -d --restart always --name portofolio-app --network web zanfuu/portofolio:latest &&
+                            docker run -d --restart always --name portofolio-app -p 3001:3000 --network web zanfuu/portofolio:latest &&
                             
                             echo "--- DEPLOYMENT SUCCESS ---"
                         '

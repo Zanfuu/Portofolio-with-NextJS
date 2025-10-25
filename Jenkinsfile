@@ -11,14 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo '📥 Checking out code from repository...'
-                script {
-                    try {
-                        git url: 'https://github.com/Zanfuu/Portofolio-with-NextJS.git', branch: 'master'
-                    } catch (Exception e) {
-                        echo "❌ Master branch not found, trying main branch..."
-                        git url: 'https://github.com/Zanfuu/Portofolio-with-NextJS.git', branch: 'main'
-                    }
-                }
+                git url: 'https://github.com/Zanfuu/Portofolio-with-NextJS.git', branch: 'main'
             }
         }
 

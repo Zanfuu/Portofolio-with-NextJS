@@ -74,7 +74,7 @@ export default function HomeSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl md:text-2xl text-black mb-8 font-medium"
             >
-              Frontend Developer
+              Frontend Developer | DevOps Engineer
             </motion.p>
             
             <motion.p

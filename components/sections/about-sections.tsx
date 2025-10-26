@@ -55,7 +55,7 @@ export default function AboutSection() {
                 <div className="glass-card p-4 rounded-2xl">
                   <h4 className="font-semibold text-black mb-3">DevOps & Infrastructure</h4>
                   <ul className="text-sm text-black/80 space-y-1">
-                    <li>• Jenkins CI/CD</li>
+                    <li>• Jenkins/Github Actions/Gitlab CI/CD</li>
                     <li>• Docker & Containerization</li>
                     <li>• Linux & VPS Management</li>
                     <li>• Nginx & Cloudflare</li>

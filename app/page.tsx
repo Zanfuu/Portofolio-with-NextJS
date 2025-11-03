@@ -5,7 +5,7 @@ import ProjectsSection from '../components/sections/projects-sections';
 import ExperienceSection from '../components/sections/experiences-sections';
 import CertificatesSection from '../components/sections/certificates-sections';
 import Contact from '../components/layouts/contact';
-
+// deploy ci/cd
 export default function Home() {
   return (
     <div className="min-h-screen">

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "../components/layouts/header";
 import MobileHeader from "../components/layouts/mobile-header";
+import SplashScreenWrapper from "../components/layouts/splash-screen-wrapper";
 
 // Lazy load non-critical components
 const Footer = dynamic(() => import("../components/layouts/footer"), {
@@ -43,10 +44,12 @@ export default function RootLayout({
       <body
         className={`${plusJakarta.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <MobileHeader />
-        {children}
-        <Footer />
+        <SplashScreenWrapper>
+          <Header />
+          <MobileHeader />
+          {children}
+          <Footer />
+        </SplashScreenWrapper>
       </body>
     </html>
   );

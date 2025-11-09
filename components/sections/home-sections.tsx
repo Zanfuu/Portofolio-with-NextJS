@@ -6,7 +6,7 @@ import { useTypewriter } from '@/hooks/useTypewriter';
 
 export default function HomeSection() {
   const typewriterText = useTypewriter({
-    texts: ['Hi There !!!', "I'm Fauzan Naufal Azmi", 'You can call me Zanfuu !!'],
+    texts: ['Hi There !!', "I'm Fauzan Naufal Azmi", 'You can call me Zanfuu!!'],
     typingSpeed: 100,
     deletingSpeed: 50,
     pauseTime: 2000,

@@ -1,64 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 import Link from 'next/link';
 import CTAButton from '../ui/cta-button';
+import { NAVIGATION_ITEMS } from '@/constants/navigation';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const active = useScrollSpy();
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
   };
-
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Certificates', href: '#certificates' },
-  ];
-
-  // Scrollspy active section
-  const [active, setActive] = useState<string>('home');
-
-  // Throttled scroll handler
-  useEffect(() => {
-    let ticking = false;
-    const sections = ['home','about','skills','projects','experience','certificates'];
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          for (const id of sections) {
-            const el = document.getElementById(id);
-            if (!el) continue;
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= 120 && rect.bottom >= 120) {
-              setActive((prevActive) => {
-                if (prevActive !== id) return id;
-                return prevActive;
-              });
-              break;
-            }
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Initial check
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <header className="glass-header sticky top-0 z-50 transition-all duration-300 hidden md:block">
@@ -73,7 +27,7 @@ export default function Header() {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex space-x-8">
-                  {navigation.map((item) => (
+                  {NAVIGATION_ITEMS.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}

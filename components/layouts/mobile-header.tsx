@@ -1,63 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { NAVIGATION_ITEMS } from '@/constants/navigation';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 export default function MobileHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const active = useScrollSpy();
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
   };
-
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Certificates', href: '#certificates' },
-  ];
-
-  // Scrollspy active section
-  const [active, setActive] = useState<string>('home');
-
-  // Throttled scroll handler
-  useEffect(() => {
-    let ticking = false;
-    const sections = ['home','about','skills','projects','experience','certificates'];
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          for (const id of sections) {
-            const el = document.getElementById(id);
-            if (!el) continue;
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= 120 && rect.bottom >= 120) {
-              setActive((prevActive) => {
-                if (prevActive !== id) return id;
-                return prevActive;
-              });
-              break;
-            }
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Initial check
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <>
@@ -151,7 +106,7 @@ export default function MobileHeader() {
             {/* Navigation Items */}
             <div className="px-4 py-4 max-h-[50vh] overflow-y-auto overflow-x-hidden w-full">
               <nav className="space-y-1 w-full">
-                {navigation.map((item) => (
+                {NAVIGATION_ITEMS.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}

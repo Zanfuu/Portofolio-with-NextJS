@@ -110,6 +110,7 @@ export default function ExperiencesPageContent() {
                             fill
                             className="object-contain p-3"
                             sizes="(max-width: 1024px) 96px, 128px"
+                            loading="lazy"
                           />
                         ) : (
                           <div className="text-4xl lg:text-5xl font-black text-white drop-shadow-lg">

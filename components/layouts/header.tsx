@@ -1,13 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import CTAButton from '../ui/cta-button';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
@@ -24,21 +23,42 @@ export default function Header() {
 
   // Scrollspy active section
   const [active, setActive] = useState<string>('home');
-  if (typeof window !== 'undefined') {
-    // basic scroll listener, lightweight
-    window.addEventListener('scroll', () => {
-      const sections = ['home','about','skills','projects','experience','certificates'];
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (!el) continue;
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom >= 120) {
-          if (active !== id) setActive(id);
-          break;
-        }
+
+  // Throttled scroll handler
+  useEffect(() => {
+    let ticking = false;
+    const sections = ['home','about','skills','projects','experience','certificates'];
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          for (const id of sections) {
+            const el = document.getElementById(id);
+            if (!el) continue;
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 120 && rect.bottom >= 120) {
+              setActive((prevActive) => {
+                if (prevActive !== id) return id;
+                return prevActive;
+              });
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-    }, { passive: true });
-  }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <header className="glass-header sticky top-0 z-50 transition-all duration-300 hidden md:block">

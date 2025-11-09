@@ -58,6 +58,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
                 fill
                 className="object-contain p-3"
                 sizes="(max-width: 768px) 96px, 112px"
+                loading="lazy"
               />
             ) : (
               <div className="text-4xl md:text-5xl font-black text-white drop-shadow-lg">

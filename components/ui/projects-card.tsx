@@ -33,6 +33,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           alt={project.title}
           fill
           className="object-cover"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute top-4 right-4">
           <span className="chip-active text-xs" style={{paddingTop: '0.375rem', paddingBottom: '0.375rem'}}>

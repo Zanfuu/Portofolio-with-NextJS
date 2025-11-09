@@ -2,8 +2,17 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTypewriter } from '@/hooks/useTypewriter';
 
 export default function HomeSection() {
+  const typewriterText = useTypewriter({
+    texts: ['Hi There !!!', "I'm Fauzan Naufal Azmi", 'You can call me Zanfuu !!'],
+    typingSpeed: 100,
+    deletingSpeed: 50,
+    pauseTime: 2000,
+    loop: true,
+  });
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
@@ -64,8 +73,10 @@ export default function HomeSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-black text-black mb-6 leading-tight"
             >
-              Hi, I'm{' '}
-              <span className="text-gradient-primary">Fauzan Naufal Azmi</span>
+              <span className="text-gradient-primary">
+                {typewriterText}
+                <span className="animate-pulse">|</span>
+              </span>
             </motion.h1>
             
             <motion.p

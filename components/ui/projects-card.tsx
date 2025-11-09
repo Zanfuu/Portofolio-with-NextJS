@@ -34,7 +34,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
         <div className="absolute top-4 right-4">
           <span className="chip-active text-xs" style={{paddingTop: '0.375rem', paddingBottom: '0.375rem'}}>
             {project.category}

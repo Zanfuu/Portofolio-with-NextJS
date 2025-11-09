@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { experiences } from '../../data/experiences';
 
 export default function ExperiencesPageContent() {
@@ -83,77 +84,125 @@ export default function ExperiencesPageContent() {
               <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                 {/* Company Logo/Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 glass rounded-2xl flex items-center justify-center">
-                    <div className="text-3xl font-black text-black">
-                      {experience.company.charAt(0)}
-                    </div>
-                  </div>
+                  {(() => {
+                    const getCompanyInitials = (company: string) => {
+                      return company
+                        .split(' ')
+                        .slice(0, 2)
+                        .map(word => word.charAt(0))
+                        .join('')
+                        .toUpperCase();
+                    };
+                    return (
+                      <div 
+                        className="w-24 h-24 lg:w-32 lg:h-32 rounded-2xl flex items-center justify-center shadow-lg overflow-hidden relative"
+                        style={{
+                          background: experience.logo 
+                            ? '#fff' 
+                            : 'linear-gradient(135deg, var(--primary-600), var(--primary-400))',
+                          boxShadow: '0 10px 30px rgba(124, 58, 237, 0.3)'
+                        }}
+                      >
+                        {experience.logo ? (
+                          <Image
+                            src={experience.logo}
+                            alt={experience.logoAlt || `${experience.company} logo`}
+                            fill
+                            className="object-contain p-3"
+                            sizes="(max-width: 1024px) 96px, 128px"
+                          />
+                        ) : (
+                          <div className="text-4xl lg:text-5xl font-black text-white drop-shadow-lg">
+                            {getCompanyInitials(experience.company)}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </div>
 
                 {/* Experience Details */}
-                <div className="flex-1">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-3">
-                    <div>
-                      <h3 className="text-2xl font-bold text-black mb-1">
+                <div className="flex-1 min-w-0">
+                  {/* Header with Position and Duration */}
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-3 gap-2">
+                    <div className="flex-1">
+                      <h3 className="text-2xl lg:text-3xl font-bold text-black mb-1">
                         {experience.position}
                       </h3>
-                      <h4 className="text-xl font-semibold text-black mb-2">
+                      <h4 className="text-xl lg:text-2xl font-semibold text-black mb-2">
                         {experience.company}
                       </h4>
                     </div>
-                    <div className="text-right">
-                      <span className="text-sm font-medium text-gray-500 block">
+                    <div className="flex flex-col items-start lg:items-end gap-1">
+                      <span className="text-sm font-medium text-gray-600 whitespace-nowrap">
                         {experience.duration}
                       </span>
-                      <span className="text-sm font-medium text-gray-500">
-                        {experience.location}
-                      </span>
+                      {experience.location && (
+                        <span className="text-xs font-medium text-gray-500 whitespace-nowrap">
+                          {experience.location}
+                        </span>
+                      )}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="glass-button-dark text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      {experience.type}
-                    </span>
-                    <span className="glass text-black px-3 py-1 rounded-full text-sm font-medium">
-                      {experience.category}
-                    </span>
-                  </div>
+                  {/* Badges */}
+                  {(experience.type || experience.category) && (
+                    <div className="flex items-center gap-3 mb-4 flex-wrap">
+                      {experience.type && (
+                        <span className="chip-active text-xs px-4 py-1.5">
+                          {experience.type}
+                        </span>
+                      )}
+                      {experience.category && (
+                        <span className="chip text-xs px-4 py-1.5">
+                          {experience.category}
+                        </span>
+                      )}
+                    </div>
+                  )}
 
+                  {/* Description */}
                   <p className="text-black/80 mb-6 leading-relaxed">
                     {experience.description}
                   </p>
 
                   {/* Achievements */}
-                  <div className="mb-6">
-                    <h5 className="text-lg font-semibold text-black mb-3">
-                      Key Achievements:
-                    </h5>
-                    <ul className="list-disc list-inside space-y-2">
-                      {experience.achievements.map((achievement, achievementIndex) => (
-                        <li key={achievementIndex} className="text-black/80">
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {experience.achievements && experience.achievements.length > 0 && (
+                    <div className="mb-6">
+                      <h5 className="text-lg font-semibold text-black mb-3 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[var(--primary-600)] to-[var(--primary-400)]"></span>
+                        Key Achievements:
+                      </h5>
+                      <ul className="list-none space-y-2">
+                        {experience.achievements.map((achievement, achievementIndex) => (
+                          <li key={achievementIndex} className="text-black/80 leading-relaxed flex items-start gap-2">
+                            <span className="text-[var(--primary-500)] mt-2 flex-shrink-0 font-bold">▸</span>
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   {/* Technologies */}
-                  <div>
-                    <h5 className="text-lg font-semibold text-black mb-3">
-                      Technologies Used:
-                    </h5>
-                    <div className="flex flex-wrap gap-2">
-                      {experience.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="glass text-black px-3 py-1 rounded-full text-sm font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  {experience.technologies && experience.technologies.length > 0 && (
+                    <div>
+                      <h5 className="text-lg font-semibold text-black mb-3 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[var(--primary-600)] to-[var(--primary-400)]"></span>
+                        Technologies Used:
+                      </h5>
+                      <div className="flex flex-wrap gap-2">
+                        {experience.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="chip text-xs px-3 py-1.5"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </motion.div>

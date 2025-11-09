@@ -20,6 +20,8 @@ export const experiences: Record<string, Experience[]> = {
       ],
       location: 'Jakarta, Indonesia',
       type: 'Full-time',
+      // logo: '/logos/transgo-logo.png', // Tambahkan path logo perusahaan di sini
+      // logoAlt: 'Transgo Group Logo', // Alt text untuk logo
       responsibilities: [
         'Develop and maintain React-based web applications',
         'Collaborate with UX/UI designers to implement designs',

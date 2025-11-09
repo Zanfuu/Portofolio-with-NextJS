@@ -41,6 +41,8 @@ export interface Experience {
   achievements: string[];
   location: string;
   type: string;
+  logo?: string; // Path to company logo image
+  logoAlt?: string; // Alt text for logo
   responsibilities?: string[];
   teamSize?: number;
 }

@@ -91,7 +91,6 @@ export default function CertificatesPageContent() {
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <span className="glass-button-dark text-white px-3 py-1.5 rounded-full text-xs font-semibold">
                     {certificate.category}
